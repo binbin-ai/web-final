@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기말프로젝트 기획서</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 16px;
+            background-color: #f4f5f7;
+            color: #222;
+            font-family: "Malgun Gothic", sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            margin: 0 0 6px 0;
+            font-size: 28px;
+            color: #111;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .box {
+            background-color: #fff;
+            border: 1px solid #d9dce0;
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .box h2 {
+            margin: 0 0 12px 0;
+            font-size: 18px;
+            color: #222;
+            border-left: 4px solid #333;
+            padding-left: 10px;
+        }
+
+        .box p {
+            margin: 0 0 8px 0;
+        }
+
+        .box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .box li {
+            margin-bottom: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f2f5;
+            white-space: nowrap;
+        }
+
+        .url-cell {
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+        figure {
+            margin: 10px 0 0 0;
+            padding: 12px;
+            border: 1px dashed #bbb;
+            background-color: #fafafa;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 8px auto;
+        }
+
+        figcaption {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .sketch-wrap {
+            display: flex;
+            gap: 16px;
+        }
+
+        .sketch-wrap figure {
+            flex: 1;
+        }
+
+        @media (max-width: 640px) {
+            .sketch-wrap {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>기말프로젝트 기획서</h1>
+        </header>
+
+        <main>
+            <section class="box">
+                <h2>1. 이름, GitHub 아이디, 사이트 이름</h2>
+                <ul>
+                    <li><b>이름</b> : 박현빈</li>
+                    <li><b>GitHub 아이디</b> : binbin-ai</li>
+                    <li><b>사이트 이름</b> : 영화 개봉일 사건사고</li>
+                </ul>
+            </section>
+
+            <section class="box">
+                <h2>2. 누구를 위한 사이트인가</h2>
+                <p><b>한줄</b> : 영화 소개와 더불어 영화 개봉일을 기준으로 해당 일시에 전세계에서 어떤 사건사고가 발생하였는지 소개해주는 사이트 입니다.</p>
+                <ul>
+                    <li><b>보드</b> : 웹 사이트 개발자가 추천하는 영화 목록 카드, 제목 검색, 장르/정렬 기능, 찜하기</li>
+                    <li><b>상세</b> : 영화 제목, 개봉일, 장르, 제작국가, 해당년도</li>
+                    <li><b>사건</b> : 선택 영화 개봉일 기준 사건사고, 제목, 설명, 썸네일</li>
+                </ul>
+            </section>
+
+            <section class="box">
+                <h2>3. 플러스원 페이지 : 그날의 타임머신(개봉일 기준 뉴스)</h2>
+                <p><strong>한 줄 소개 :</strong> 선택한 영화의 개봉 날짜를 기준으로 당시 전 세계에서 일어났던 주요 뉴스와 사건을 함께 보여 줍니다.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>이름</th>
+                            <th>제공기관</th>
+                            <th>대표 요청 주소</th>
+                            <th>키 이름</th>
+                            <th>키 발급 상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Article Search API</td>
+                            <td>The New York Times</td>
+                            <td class="url-cell">
+                                https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=YYYYMMDD&amp;end_date=YYYYMMDD&amp;api-key=KEY
+                            </td>
+                            <td>NYT_KEY</td>
+                            <td>받음</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="box">
+                <h2>4. 주소창 호출 결과 캡처</h2>
+                <figure>
+                    <img src="./api.png" alt="API 주소창 호출 결과 캡처">
+                    <figcaption>Article Search API 주소창 호출 결과</figcaption>
+                </figure>
+            </section>
+
+            <section class="box">
+                <h2>5. 화면 스케치 (보드, 플러스원)</h2>
+                <figure>
+                        <img src="./board.jpg" alt="보드 화면 스케치">
+                        <figcaption>보드 화면 스케치</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./plusone.jpg" alt="플러스원 페이지 화면 스케치">
+                        <figcaption>플러스원 페이지 스케치</figcaption>
+                    </figure>
+            </section>
+
+            <section class="box">
+                <h2>6. 퍼뜨릴 계획과 받고 싶은 페이지</h2>
+                <ul>
+                    <li>왜? : 영화에 대한 정보도 얻고 해당 영화가 개봉한 날짜에 발생한 사건에 대한 정보도 얻고 일석이조, 또 만약 개봉날짜에 영화의 주제와 비슷한 사건사고가 발생했다면 흥미 상승</li>
+                    <li>타겟? : 영화를 추천받고 싶은사람, 영화와 어떤 사건을 연관짓고 싶은사람, 여러 사건사고를 알고싶은데 단순 검색으로 알아보는것은 지루한 사람</li>
+                    <li>받고 싶은 페이지 : 영화에 맞는 간식 레시피 찾기</li>
+                </ul>
+            </section>
+
+            <section class="box">
+                <h2>7. 13~15주차 일정과 위험, 대안</h2>
+                <ul>
+                    <li>13주차 : 기존 영화 보드를 더 색다르게 변경할수 있는 방법 고안 및 제작</li>
+                    <li>14주차 : 해당 아이디어(사건사고)보다 더 이색 아이디어 고안, 아이디어에 맞는 API 탐색, API 반환값을 활용한 페이지 제작</li>
+                    <li>15주차 : 디자인 다듬기, 에러/예외 처리, 발표/li>
+                    <li>위험 : NYTimes 무료 API는 분당 5회 호출 제한이 있어 여러 영화 카드를 빠르게 누르면 오류가 날 수 있음</li>
+                    <li>대안 : 한 번 불러온 날짜의 기사 결과는 브라우저 localStorage에 저장해 두고 재사용하며, 오류 시 안내 문구를 표시함</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
